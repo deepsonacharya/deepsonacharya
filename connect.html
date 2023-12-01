@@ -1,0 +1,22 @@
+function sendmail(){
+    var params={
+        name: document.getElementByID("name").value,
+        email: document.getElementByID("email").value,
+        phone: document.getElementByID("phone").value,
+        message: document.getElementByID("message").value,
+    }
+
+        const serviceID="service_5p4kpt9";
+        const templateID="template_gc55tw5"
+        emailjs.send(serviceID, templateID, params)
+.then{
+    res =>{
+        document.getElementByID("name").value="";
+        document.getElementByID("email").value="";
+        document.getElementByID("phone").value="";
+        document.getElementByID("message").value="";
+        console.log(res);
+        alert("Your message sent succesfully");
+ }}
+ .catch{(err)=>console.log(err)};       
+}
